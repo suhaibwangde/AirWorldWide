@@ -6,23 +6,53 @@ using System.Threading.Tasks;
 
 namespace BackwardsCounterProgram
 {
+	/// <summary>
+	/// Backward counter 
+	/// </summary>
     public class BackwardCounter
     {
+		/// <summary>
+		/// First Number
+		/// </summary>
         public int FirstNumber { get; set; }
+
+		/// <summary>
+		/// Second Number
+		/// </summary>
         public int SecondNumber { get; set; }
+
+		/// <summary>
+		/// Message
+		/// </summary>
         private Message Message { get; set; }
+
         // Message Is Valid
         public bool IsValid { get {
                 return Message.IsValid;
             } }
+
         // Validation Message
         public string Status { get {
                 return Message.Status;
             } }
+
+		/// <summary>
+		/// Construct BackwardCounter
+		/// </summary>
+		/// <param name="firstNumber">First Number as string</param>
+		/// <param name="secondNumber">Secon Number as string</param>
         public BackwardCounter(string firstNumber = "", string secondNumber = "") {
-            this.Message = ValidateInput(firstNumber, secondNumber);
+			// Validate Numbers
+            this.Message = ValidateNumbers(firstNumber, secondNumber);
         }
-        private Message ValidateInput(string firstNumberString, string secondNumberString)
+
+		/// <summary>
+		/// Validate input string
+		/// </summary>
+		/// <param name="firstNumberString">Frist Number</param>
+		/// <param name="secondNumberString">Second Number</param>
+		/// <returns>Message is valid and its status</returns>
+        private Message ValidateNumbers(string firstNumberString, string secondNumberString)
         {
             int firstNumber, secondNumber;
             if (string.IsNullOrEmpty(firstNumberString.Trim()) || string.IsNullOrEmpty(secondNumberString.Trim()))
@@ -56,27 +86,41 @@ namespace BackwardsCounterProgram
             return Message.Create(true, "Numbers are valid");
         }
 
+		/// <summary>
+		/// Run backward counter on valid arguments
+		/// </summary>
+		/// <returns>Counter result if valid else return error</returns>
         public string PrintBackwardCount()
         {
-            List<string> bacwardCount = new List<string>();
+			// List of backwardCount
+            List<string> bakcwardCount = new List<string>();
+			// Check if valid
             if (IsValid)
             {
+				// First number is greater than 1 and First number is divisible by Second Number
                 while((FirstNumber > 1) && (FirstNumber % SecondNumber == 0))
                 {
-                    bacwardCount.Add(FirstNumber.ToString());
+					// Add First number to list
+                    bakcwardCount.Add(FirstNumber.ToString());
+					// Deduct FirstNumber By SecondNumber
                     FirstNumber -= SecondNumber;
                 }
-            } else
-            {
+            } else {
+				// Return Error
                 return "Error: "+Status;
             }
-            return string.Join(" ", bacwardCount);
+			// Join the list by space
+            return string.Join(" ", bakcwardCount);
         }
 
+		// Show Help to user
         public static void Help()
         {
+			// Valid input
             Console.WriteLine("- Execute:   >BackwardsCounterProgram.exe {First Number} {Second Number}");
+			// Example of valid input
             Console.WriteLine("- Example:   >BackwardsCounterProgram.exe 25 5");
+			// Help option
             Console.WriteLine("- Help:      >BackwardsCounterProgram.exe -help");
         }
     }

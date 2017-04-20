@@ -4,6 +4,9 @@ using BackwardsCounterProgram;
 
 namespace BackwardsCounterProgramTest
 {
+	/// <summary>
+	/// Backwards Counter Program Test
+	/// </summary>
     [TestClass]
     public class BackwardsCounterProgramTest
     {

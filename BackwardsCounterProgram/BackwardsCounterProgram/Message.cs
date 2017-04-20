@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BackwardsCounterProgram
 {
+	/// <summary>
+	/// Message
+	/// </summary>
     public class Message
     {
         // Message Is Valid
@@ -21,6 +24,7 @@ namespace BackwardsCounterProgram
         /// <returns>Message</returns>
         public static Message Create(bool isValid, string status)
         {
+			// retuen new mesage with valid and satus
             return new Message() { IsValid = isValid, Status = status };
         }
     }
