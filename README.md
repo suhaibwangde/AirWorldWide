@@ -1,10 +1,20 @@
 # AirWorldWide
 AirWorldWide Exercise
 - BackwardCounterProgram
-  - Execute:   >BackwardsCounterProgram.exe {First Number} {Second Number}
-  - Example:   >BackwardsCounterProgram.exe 25 5
-  - Help:      >BackwardsCounterProgram.exe -help
+  - Build
+  - Command line Execute bin>Debug
+    - Execute:   >BackwardsCounterProgram.exe {First Number} {Second Number}
+    - Example:   >BackwardsCounterProgram.exe 25 5
+    - Help:      >BackwardsCounterProgram.exe -help
+- BackwardCounterProgramTest
+  - Build in visual studio
+  - Run All Tests
 - Anagrams
-  - Execute:   >Anagrams.exe {First word} {Second word}
-  - Example:   >Anagrams.exe eat ate
-  - Help:      >Anagrams.exe -help
+  - Build
+  - Command line Execute bin>Debug
+    - Execute:   >Anagrams.exe {First word} {Second word}
+    - Example:   >Anagrams.exe eat ate
+    - Help:      >Anagrams.exe -help
+- AnagramTest
+  - Build in visual studio
+  - Run All Tests
